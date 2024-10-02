@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b69cf1cf-78e6-4865-8d2d-db6c8ade92f6}">
+		<property name="name">
+			<value>Outside_vol</value>
+		</property>
+		<relationship name="folder">
+			<destination>{51e6489d-6a1c-4514-afdf-acce30363fd5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6efb89ed-58b2-4174-a622-39e5e538884d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6efb89ed-58b2-4174-a622-39e5e538884d}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

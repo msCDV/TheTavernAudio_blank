@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Snapshot" id="{3098c58e-7fbd-42fd-aa57-6777fd7c613e}">
+		<property name="name">
+			<value>Inside Room</value>
+		</property>
+		<relationship name="mixer">
+			<destination>{a1a5bfa4-00dd-450e-98e9-9d6e7f62b728}</destination>
+		</relationship>
+		<relationship name="automatableProperties">
+			<destination>{db4ec11c-3f89-4d61-ac30-449d98588380}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{85d8583c-fa24-4045-bfcf-087dd7a299fe}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{d55b7c5c-a6cb-4d0a-b3a1-9fc1ae19156b}</destination>
+		</relationship>
+		<relationship name="snapshotMasterTrack">
+			<destination>{cb6ce3ba-8ded-4e99-ab40-e2171547b0b2}</destination>
+		</relationship>
+		<relationship name="snapshotProperties">
+			<destination>{a0bbd9c1-4566-4c86-9fe4-bc9c12c304b3}</destination>
+			<destination>{cb6844e9-f731-433f-b420-14976e386a46}</destination>
+			<destination>{a1e9692f-7c2c-47de-b3db-2205e6ba2b28}</destination>
+			<destination>{bc18b5a2-975d-489b-94c7-3061e7cb3970}</destination>
+		</relationship>
+		<relationship name="snapshotTracks">
+			<destination>{56fe7514-2b12-4e2b-8f50-975cb53181ec}</destination>
+		</relationship>
+	</object>
+	<object class="EventAutomatableProperties" id="{db4ec11c-3f89-4d61-ac30-449d98588380}" />
+	<object class="MarkerTrack" id="{85d8583c-fa24-4045-bfcf-087dd7a299fe}" />
+	<object class="Timeline" id="{d55b7c5c-a6cb-4d0a-b3a1-9fc1ae19156b}" />
+	<object class="SnapshotMasterTrack" id="{cb6ce3ba-8ded-4e99-ab40-e2171547b0b2}" />
+	<object class="SnapshotProperty" id="{a0bbd9c1-4566-4c86-9fe4-bc9c12c304b3}">
+		<property name="propertyName">
+			<value>wetLevel</value>
+		</property>
+		<property name="value">
+			<value>-6</value>
+		</property>
+		<relationship name="automatableObject">
+			<destination>{9a31be9b-665d-4f28-a300-c34c91bcad82}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotProperty" id="{cb6844e9-f731-433f-b420-14976e386a46}">
+		<property name="propertyName">
+			<value>dryLevel</value>
+		</property>
+		<property name="value">
+			<value>-3.5</value>
+		</property>
+		<relationship name="automatableObject">
+			<destination>{9a31be9b-665d-4f28-a300-c34c91bcad82}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotProperty" id="{a1e9692f-7c2c-47de-b3db-2205e6ba2b28}">
+		<property name="propertyName">
+			<value>frequencyA</value>
+		</property>
+		<property name="value">
+			<value>22000</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{c6ea3cf9-ac15-4201-bde4-b1c1ac4fa6a0}</destination>
+		</relationship>
+		<relationship name="automatableObject">
+			<destination>{c2d03f6c-084c-464b-b6b5-96df1f405906}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotProperty" id="{bc18b5a2-975d-489b-94c7-3061e7cb3970}">
+		<property name="propertyName">
+			<value>volume</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{4a997c41-1bc7-427d-95b2-72360b451fee}</destination>
+		</relationship>
+		<relationship name="automatableObject">
+			<destination>{ce6385af-ae9b-428c-aa63-79e3b7b368b0}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotTrack" id="{56fe7514-2b12-4e2b-8f50-975cb53181ec}">
+		<relationship name="mixerStrip">
+			<destination>{ce6385af-ae9b-428c-aa63-79e3b7b368b0}</destination>
+		</relationship>
+	</object>
+	<object class="ADSRModulator" id="{c6ea3cf9-ac15-4201-bde4-b1c1ac4fa6a0}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>value</value>
+		</property>
+		<property name="peakValue">
+			<value>-45</value>
+		</property>
+		<property name="sustainValue">
+			<value>-45</value>
+		</property>
+	</object>
+	<object class="ADSRModulator" id="{4a997c41-1bc7-427d-95b2-72360b451fee}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>value</value>
+		</property>
+		<property name="peakValue">
+			<value>-16.5</value>
+		</property>
+		<property name="sustainValue">
+			<value>-16.5</value>
+		</property>
+	</object>
+</objects>

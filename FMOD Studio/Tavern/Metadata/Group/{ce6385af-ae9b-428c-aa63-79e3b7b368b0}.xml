@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{ce6385af-ae9b-428c-aa63-79e3b7b368b0}">
+		<property name="name">
+			<value>ReverbSnapshot</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{e6518b89-400d-4948-badf-d7775473d3ba}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b09ddebf-74fd-4054-ae4c-9973b0dd82e0}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{affafdb4-3c50-46c7-a734-e58ca6121d20}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{e6518b89-400d-4948-badf-d7775473d3ba}">
+		<relationship name="effects">
+			<destination>{35bfb7e4-61ac-4e56-9547-31e2be4a21e2}</destination>
+			<destination>{c2d03f6c-084c-464b-b6b5-96df1f405906}</destination>
+			<destination>{9a31be9b-665d-4f28-a300-c34c91bcad82}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b09ddebf-74fd-4054-ae4c-9973b0dd82e0}" />
+	<object class="MixerBusFader" id="{35bfb7e4-61ac-4e56-9547-31e2be4a21e2}" />
+	<object class="MultibandEqEffect" id="{c2d03f6c-084c-464b-b6b5-96df1f405906}">
+		<property name="frequencyA">
+			<value>22000</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{9a31be9b-665d-4f28-a300-c34c91bcad82}">
+		<property name="wetLevel">
+			<value>-80</value>
+		</property>
+	</object>
+</objects>
