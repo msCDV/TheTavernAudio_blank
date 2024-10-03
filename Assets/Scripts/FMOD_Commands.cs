@@ -8,30 +8,35 @@ public class FMOD_Commands : MonoBehaviour
 {
     #region EVENT EMITTER
     // EVENT EMITTER
-    public FMODUnity.StudioEventEmitter tavernEmitter; // œcie¿ka do event emittera na scenie
+    public FMODUnity.StudioEventEmitter tavernEmitter; // œcie¿ka do event emittera na scenie // ENG - path to event emitter on stage
     #endregion
 
     #region EVENT
     // EVENT
-    FMOD.Studio.EventInstance FootstepsSound; // klasa eventu / snapshotu
-    public EventReference footstepsEvent; // œcie¿ka dostêpu do eventu / snapshotu
+    FMOD.Studio.EventInstance FootstepsSound; // klasa eventu / snapshotu // ENG - event / snapshot class
+    public EventReference footstepsEvent; // œcie¿ka dostêpu do eventu / snapshotu // ENG - path to the event / snapshot
 
     private void Footsteps()
     {
-        // jednorazowe odtworzenie
+        // jednorazowe odtworzenie // ENG - oneshot
         FMODUnity.RuntimeManager.PlayOneShot(footstepsEvent); // stworzenie klasy snapshotu ze œcie¿k¹ do wybranego snapshotu i jednorazowe odtworzenie
-
+                                                              // ENG - Create a snapshot class with the path to the selected snapshot and play it once
         // podstawowe zarz¹dzanie eventem
+        // ENG - basic event management
         FootstepsSound = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent); // podanie klasie eventu œcie¿ki do wybranego eventu / snapshotu
+                                                                                  // ENG - giving the event class the path to the selected event / snapshot
         FootstepsSound.setParameterByNameWithLabel("Footsteps_surface", "Stone"); // zmiana wartoœci parametru zadeklarowanego lub wykorzystanego w evencie
-        FootstepsSound.start(); // odtworzenie eventu
-        FootstepsSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); // STOP bez fadeout
-        FootstepsSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // STOP z fadeout
-        FootstepsSound.release(); // zwolnienie pamiêci
+                                                                                  // ENG - changing the value of a parameter declared or used in an event
+        FootstepsSound.start(); // odtworzenie eventu // ENG - event playback
+        FootstepsSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); // STOP bez fadeout // ENG - stop without fading out
+        FootstepsSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // STOP z fadeout // ENG - stop with fading out
+        FootstepsSound.release(); // zwolnienie pamiêci // ENG - memory release
 
         // zarz¹dzanie eventem z przypiêciem emittera do gameObjectu 
+        // ENG - Event management with pinning the emitter to the gameObject
         FootstepsSound = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent);
         FootstepsSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform)); // !!!!11! przypiêcie emittera eventu do gameObjectu !!!11!!
+                                                                                                     // ENG - !!!!11! pinning the event emitter to the gameObject !!!11!!
         FootstepsSound.setParameterByNameWithLabel("Footsteps_surface", "Stone");
         FootstepsSound.start();
         FootstepsSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -42,28 +47,30 @@ public class FMOD_Commands : MonoBehaviour
 
     #region SNAPSHOT
     // SNAPSHOT
-    FMOD.Studio.EventInstance HealthSnap; // klasa eventu / snapshotu
-    public EventReference healthSnapshot; // œcie¿ka dostêpu do eventu / snapshotu
+    FMOD.Studio.EventInstance HealthSnap; // klasa eventu / snapshotu // ENG - event / snapshot class
+    public EventReference healthSnapshot; // œcie¿ka dostêpu do eventu / snapshotu // ENG - path to the event / snapshot
 
     private void StartSnapshot()
     {
         if (tavernEmitter != null && tavernEmitter.IsPlaying()) // sprawdzenie czy event emitter istnieje na scenie i czy jest aktywny
+                                                                // ENG - checking if the event emitter exists on the scene and if it is active
         {
             HealthSnap = FMODUnity.RuntimeManager.CreateInstance(healthSnapshot); // podanie klasie snapshotu œcie¿ki do wybranego eventu / snapshotu
-            HealthSnap.start(); // w³¹czenie snapshotu
+                                                                                  // ENG - giving the snapshot class the path to the selected event / snapshot
+            HealthSnap.start(); // w³¹czenie snapshotu // ENG - snapshot activation
         }
         else if (tavernEmitter != null && tavernEmitter.IsPlaying())
         {
-            HealthSnap.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); // STOP bez fadeout
-            HealthSnap.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // STOP z fadeout
-            HealthSnap.release(); // zwolnienie pamiêci
+            HealthSnap.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); // STOP bez fadeout // ENG - stop without fading out
+            HealthSnap.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // STOP z fadeout // ENG - stop with fading out
+            HealthSnap.release(); // zwolnienie pamiêci // ENG - memory release
         }
     }
     #endregion
 
     #region VCA
     // VCA
-    FMOD.Studio.VCA GlobalVCA; // klasa VCA
+    FMOD.Studio.VCA GlobalVCA; // klasa VCA // ENG - VCA's class
 
     private void VCA()
     {
@@ -88,17 +95,20 @@ public class FMOD_Commands : MonoBehaviour
     {
         // EVENT
         FootstepsSound = FMODUnity.RuntimeManager.CreateInstance(footstepsEvent); // podanie klasie eventu œcie¿ki do wybranego eventu / snapshotu
+                                                                                  // ENG - giving the event class the path to the selected event / snapshot
         Music.setParameterByNameWithLabel("Switch_parts", "Part 2"); // zmiana wartoœci parametrów typu labeled dla eventów
-        Music.start(); // odtworzenie eventu
-        Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); // STOP bez fadeout
-        Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // STOP z fadeout
+                                                                     // ENG - changing labeled parameter values for events
+        Music.start(); // odtworzenie eventu // ENG - event playback
+        Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); // STOP bez fadeout // ENG - stop without fading out
+        Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // STOP z fadeout // ENG - stop with fading out
         Music.release(); // zwolnienie pamiêci
 
 
         // EMITTER
         tavernEmitter_Music.SetParameter("Switch_parts", 0); // zmiana wartoœci parametrów typu labeled dla event emitterów
-        tavernEmitter_Music.Play(); // w³¹czenie odtwarzania na emitterze
-        tavernEmitter_Music.Stop(); // wy³¹czenie odtwarzania na emitterze
+                                                             // ENG - changing labeled parameter values for event emitters
+        tavernEmitter_Music.Play(); // w³¹czenie odtwarzania na emitterze // ENG - enableing playback on the emitter
+        tavernEmitter_Music.Stop(); // wy³¹czenie odtwarzania na emitterze // ENG - disabling playback on the emitter
     }
     #endregion
 }

@@ -6,18 +6,18 @@ using FMOD.Studio;
 
 public class VCA_new : MonoBehaviour
 {
-    private AudioSystem Mute;
+    private AudioSystem audioSystem;
 
     private void Start()
     {
-        Mute = GetComponent<AudioSystem>();
+        audioSystem = GetComponent<AudioSystem>();
     }
 
     void Update()
     {
-        Mute.ToggleMute(KeyCode.U, ref Mute.muteActive, Mute.GlobalVCA);
-        Mute.ToggleMute(KeyCode.I, ref Mute.musicMuteActive, Mute.MusicVCA);
-        Mute.ToggleMute(KeyCode.O, ref Mute.tavernMuteActive, Mute.TavernVCA);
-        Mute.ToggleMute(KeyCode.P, ref Mute.outsideMuteActive, Mute.OutsideVCA);
+        audioSystem.ToggleMute(KeyCode.U, ref audioSystem.muteActive, audioSystem.GlobalVCA);
+        audioSystem.ToggleMute(KeyCode.I, ref audioSystem.musicMuteActive, audioSystem.MusicVCA);
+        audioSystem.ToggleMute(KeyCode.O, ref audioSystem.tavernMuteActive, audioSystem.TavernVCA);
+        audioSystem.ToggleMute(KeyCode.P, ref audioSystem.outsideMuteActive, audioSystem.OutsideVCA);
     }    
 }

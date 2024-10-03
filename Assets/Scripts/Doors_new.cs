@@ -15,8 +15,8 @@ public class Doors_new : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        GameObject audioManager = GameObject.Find("Player");
-        audioSystem = audioManager.GetComponent<AudioSystem>();
+        GameObject player = GameObject.Find("Player");
+        audioSystem = player.GetComponent<AudioSystem>();
     }
 
     public void Interact()

@@ -7,13 +7,13 @@ using UnityEngine.XR;
 
 public class Footsteps_new : MonoBehaviour
 {
-    private AudioSystem Footsteps;
+    private AudioSystem audioSystem;
 
     private float lastFootstepTime = 0f;
     
     private void Start()
     {
-        Footsteps = FindObjectOfType<AudioSystem>();
+        audioSystem = FindObjectOfType<AudioSystem>();
         //Footsteps.distToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
@@ -32,10 +32,10 @@ public class Footsteps_new : MonoBehaviour
     {
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
-            if (Footsteps.IsGrounded() && Time.time - lastFootstepTime > 0.5f)
+            if (audioSystem.IsGrounded() && Time.time - lastFootstepTime > 0.5f)
             {
                 lastFootstepTime = Time.time;
-                Footsteps.PlayFootsteps();
+                audioSystem.PlayFootsteps();
             }
         }
     }
@@ -45,10 +45,10 @@ public class Footsteps_new : MonoBehaviour
     {
         if ((Input.GetKey(KeyCode.LeftShift) && Input.GetAxisRaw("Horizontal") != 0) || (Input.GetKey(KeyCode.LeftShift) && Input.GetAxisRaw("Vertical") != 0))
         {
-            if (Footsteps.IsGrounded() && Time.time - lastFootstepTime > 0.25f)
+            if (audioSystem.IsGrounded() && Time.time - lastFootstepTime > 0.25f)
             {
                 lastFootstepTime = Time.time;
-                Footsteps.PlayFootsteps();
+                audioSystem.PlayFootsteps();
             }
         }
     }
@@ -58,17 +58,17 @@ public class Footsteps_new : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(Footsteps.IsGrounded());
-            Footsteps.PlayJump();
+            Debug.Log(audioSystem.IsGrounded());
+            audioSystem.PlayJump();
         }
     }
 
     // PLAY LANDING SOUND
     private void OnCollisionEnter(Collision col)
     {
-        if (Footsteps.IsGrounded() && Footsteps.isGrounded == false)
+        if (audioSystem.IsGrounded() && audioSystem.isGrounded == false)
         {
-            Footsteps.PlayLanding();
+            audioSystem.PlayLanding();
         }
     }    
 }

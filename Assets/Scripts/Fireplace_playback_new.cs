@@ -8,8 +8,8 @@ public class Fireplace_playback_new : MonoBehaviour
 
     private void Start()
     {
-        GameObject audioManager = GameObject.Find("Player");
-        audioSystem = audioManager.GetComponent<AudioSystem>();
+        GameObject player = GameObject.Find("Player");
+        audioSystem = player.GetComponent<AudioSystem>();
     }
 
     private void OnTriggerStay(Collider other)

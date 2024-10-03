@@ -6,12 +6,11 @@ using FMODUnity;
 public class MusicSwitch_new : MonoBehaviour, IInteractable
 {
     private AudioSystem audioSystem;
-    private StudioEventEmitter eventEmitter;
 
     private void Start()
     {
-        GameObject audioManager = GameObject.Find("Player");
-        audioSystem = audioManager.GetComponent<AudioSystem>();
+        GameObject player = GameObject.Find("Player");
+        audioSystem = player.GetComponent<AudioSystem>();
     }
 
     public void Interact()
@@ -39,22 +38,10 @@ public class MusicSwitch_new : MonoBehaviour, IInteractable
                     Debug.Log(audioSystem.isMusicPlaying);
                     break;
             }
-           /* Debug.Log("Switching music");
-            if (gameObject.name == "Food_bottle4")
-                audioSystem.TavernMusic.SetParameter("Switch_parts", 0);
-            else if (gameObject.name == "Food_bottle1")
-                audioSystem.TavernMusic.SetParameter("Switch_parts", 1);
-            else if (gameObject.name == "Food_bottle3")
-                audioSystem.TavernMusic.SetParameter("Switch_parts", 2);
-            else if (gameObject.name == "Food_bottle2")
-            {
-                audioSystem.TavernMusic.SetParameter("Switch_parts", 3);
-                audioSystem.isMusicPlaying = false;
-                Debug.Log(audioSystem.isMusicPlaying);
-            } */
         }
-        else
+        else if(gameObject.name == "Food_bottle6" && !audioSystem.isMusicPlaying)
         {
+            if(gameObject.name == "Food_bottle6")
             Debug.Log("start");
             audioSystem.TavernMusic.SetParameter("Switch_parts", 0);
             audioSystem.TavernMusic.Play();
