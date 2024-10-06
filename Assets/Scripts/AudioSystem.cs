@@ -17,9 +17,7 @@ public class AudioSystem : MonoBehaviour
     //tavernMusic.tavernMusic.IsPlaying();
 
     // EVENTS //
-    FMOD.Studio.EventInstance DoorsSound_1;
-    FMOD.Studio.EventInstance DoorsSound_2;
-    FMOD.Studio.EventInstance DoorsSound_3;
+    FMOD.Studio.EventInstance DoorsSound;
     public EventReference doorsEvent;
     FMOD.Studio.EventInstance FootstepsSound;
     public EventReference footstepsEvent;
@@ -159,23 +157,23 @@ public class AudioSystem : MonoBehaviour
         if (doorsName == door_1)
         {
             if(doorsOpened_1)
-                DoorsManager(ref DoorsSound_1, 1, close);
+                DoorsManager(ref DoorsSound, 1, close);
             else
-                DoorsManager(ref DoorsSound_1, 1, open);
+                DoorsManager(ref DoorsSound, 1, open);
         }
         else if (doorsName == door_2)
         {
             if (doorsOpened_2)
-                DoorsManager(ref DoorsSound_2, 2, close);
+                DoorsManager(ref DoorsSound, 2, close);
             else
-                DoorsManager(ref DoorsSound_2, 2, open);
+                DoorsManager(ref DoorsSound, 2, open);
         }
         else if (doorsName == door_3)
         {
             if (doorsOpened_3)
-                DoorsManager(ref DoorsSound_3, 3, close);
+                DoorsManager(ref DoorsSound, 3, close);
             else
-                DoorsManager(ref DoorsSound_3, 3, open);
+                DoorsManager(ref DoorsSound, 3, open);
         }
     }    
 
